@@ -1,41 +1,26 @@
-// const app = Vue.createApp({
-//     data(){
-//         return{
-//             courseGoalA:'<h2> Finish the course and learn view! </h2>',
-//             courseGoalB:'<h2> Finih the Mater Vuew Course! </h2>'
-//         }
-//     },
-//     methods:{
-//         outputGoal(){
-//             const randomNumber = Math.random();
-//             return randomNumber<= 0.5 ? this.courseGoalA : this.courseGoalB 
-//         },
-//     }
-// }); 
-
-// app.mount('#user-goal'); 
-
-//Create the App Constant with the Creation object {}
-
 const app = Vue.createApp({
-    data(){
-     return{
-        name:'Ruben',
-        age:12,
-        ageInFiveYears:12+5,
-        faveNumber:12,
-        imageUrl: 'https://blog.hubspot.com/hubfs/Site%20owner%20turning%20images%20into%20links.jpg',
-     }
+    data() {
+      return {
+          name:'',
+        counter: 0,
+      };
     },
-    methods:{
-        changeFaveNumber: () => { 
-            return 12;
+    methods: {
+        increase (count) {
+            this.counter= this.counter + count;
         },
-        randomNumber : () => { return (Math.random()*11);},
+        decrease (count) {
+            this.counter = this.counter - count;
+        },
+        changeName (event){ 
+            this.name = event.target.value;
+        },
+        submitForm(){
+            alert("submitted");
+        }
     }
-});
-
-//mount the Vue functionality to a root component 
-
-app.mount('#assignment')
-
+  });
+  
+  app.mount('#events');
+  //Whenever there is a from that is submitted thebrowser sends a http request to a server.
+  //This is handeled by the browser as default and we need to create a method thta will handel this if we want vue to handel the request.
