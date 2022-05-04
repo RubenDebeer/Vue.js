@@ -1,26 +1,17 @@
 const app = Vue.createApp({
-    data() {
-      return {
-          name:'',
-        counter: 0,
+  data() {
+      return{
+        userInput:"Default"
       };
+  },
+  methods: {
+    showAlert() {
+      alert("This is an allert triggered by a button click event");
     },
-    methods: {
-        increase (count) {
-            this.counter= this.counter + count;
-        },
-        decrease (count) {
-            this.counter = this.counter - count;
-        },
-        changeName (event){ 
-            this.name = event.target.value;
-        },
-        submitForm(){
-            alert("submitted");
-        }
+    changeUserInput(event){
+        this.userInput = event.target.value;
     }
-  });
-  
-  app.mount('#events');
-  //Whenever there is a from that is submitted thebrowser sends a http request to a server.
-  //This is handeled by the browser as default and we need to create a method thta will handel this if we want vue to handel the request.
+  },
+});
+
+app.mount("#assignment");
